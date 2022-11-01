@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="country"
+            type="com.nurayyenilmez.countries.model.Country" />
+
+        <variable
+            name="listener"
+            type="com.nurayyenilmez.countries.adapter.CountryClickListener" />
+    </data>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:onClick="@{listener::onCountryClicked}"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/CountryUuidText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(country.uuid)}"
+            android:visibility="gone">
+
+        </TextView>
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:padding="3dp"
+            android:downloadUrl="@{country.imageUrl}">
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="4"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{country.countryName}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="5dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{country.countryRegion}"
+                android:textSize="16dp"
+                android:padding="5dp">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
